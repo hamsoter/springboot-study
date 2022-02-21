@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+form,
+input {
+  margin: 0;
+  padding: 0;
+  color: #475A50;
+}
+
+#form-group {
+display: flex;
+flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  width: 100vw;
+  height: 100vh;
+  background-color: seagreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-wave-top {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  color: navy;
+}
+.background-wave-bottom {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.container {
+  background-color: #f7f7f7;
+  padding: 3rem;
+  width: 400px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 3px 5px rgba(8, 50, 26, 0.435);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.title {
+  font-size: 1.3rem;
+  text-align: center;
+  color: #475A50;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.sub-title {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color:#475a5099;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.form-info-text {
+font-size: 0.9rem;
+}
+
+.text-field {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 0;
+  margin: 0.25rem 0;
+}
+
+.text-field:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(60, 197, 255, 0.388);
+  transition: 0.2s;
+}
+
+.error-box {
+  display: none;
+  background-color: rgba(255, 225, 52, 0.327);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: rgb(159, 105, 55);
+  margin: 1rem 0;
+  border: 1px solid rgba(159, 105, 55, 0.2);
+  font-size: 0.8rem;
+}
+
+.error-text {
+  margin-left: 0.5rem;
+}
+
+#login-btn,#join-btn {
+  font-size: 0.8rem;
+  color: #475A50;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes error-ani {
+  0% {
+    transform: translateX(0rem);
+  }
+  25% {
+    transform: translateX(-0.5rem);
+  }
+  75% {
+    transform: translateX(0.5rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+#login-btn:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#sub-container {
+margin: 0.5rem 0;
+}
+
+a.sub-menu {
+   /*text-decoration: none;*/
+    /*color: #DF8B70;*/
+    color:#f18989;
+    font-weight: light;
+    font-size: 0.9rem;
+}
+
+/*체크시*/
+#join-btn.checked {
+  transition: 0.5s;
+  background-color: seagreen;
+  color: white;
+}
+
+#join-btn.checked:active {
+  transition: 0s;
+  background-color: rgb(21, 96, 54);
+}
+
+/*에러시*/
+.text-field.error:focus {
+  box-shadow: 0 0 0 2px rgba(255, 60, 60, 0.388);
+}
+
+.text-field.error:focus::placeholder {
+  color: rgb(255, 85, 85);
+}
+
+.error-box.error {
+  display: block;
+}
+
+.error-box.error.error-ani {
+  animation: error-ani 0.3s 1;
+}
+
+/*가입완료시*/
+.container.join-complete {
+  transition: 1s;
+  transform: scale(1.1);
+}
+
+#member_list {
+display: flex;
+}
+
+#member_list > #member_level {
+margin-left: auto;
+}
+
+#member_list > #member_id {
+margin-right: 0.5rem;
+}
