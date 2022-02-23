@@ -21,7 +21,7 @@
 
             <span id="member_id" th:text="${member.id}"></span>
             <span th:text="${member.name}"></span>
-            <span id="member_level" th:text="'Lv.' + ${(member.level == 0)? '겁쟁이':'슈퍼겁쟁이'}"></span>
+            <span id="member_level" th:text="${(member.level == 0)? '겁쟁이':'슈퍼겁쟁이'}"></span>
 
         </div>
     </section>
