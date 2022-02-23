@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import otaku.shelterforcowards.repository.MemberRepository;
 import otaku.shelterforcowards.repository.jdbcMemberRepository;
+import otaku.shelterforcowards.repository.jdbcTemplateMemberRepository;
 import otaku.shelterforcowards.service.MemberService;
 
 import javax.sql.DataSource;
@@ -26,6 +27,7 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new jdbcMemberRepository(dataSource);
+        // return new jdbcMemberRepository(dataSource);
+        return new jdbcTemplateMemberRepository(dataSource);
     }
 }
