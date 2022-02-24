@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import otaku.shelterforcowards.domain.Member;
 import otaku.shelterforcowards.service.MemberService;
@@ -44,6 +45,35 @@ public class MemberController {
 
         memberService.join(member);
 
+        return "redirect:/";
+    }
+
+    // 1. 아이디 검사
+    // 2. 패스워드 검사
+    // 3. 전부 맞으면 그 멤버를 가져옴
+
+
+/*
+    @GetMapping("/login")
+    public String loginCheck(Model model) {
+        return "/members/login";
+    }*/
+
+    @GetMapping("/myPage")
+    public String showInfo(Model model) {
+        return "/members/myPage";
+    }
+
+    @PostMapping("/login")
+    public String loginId(MemberForm form) {
+
+        Member loginMember = new Member();
+        loginMember.setName(form.getName());
+        loginMember.setPassword(form.getPassword());
+
+        if(memberService.login(loginMember)) {
+            return "redirect:/myPage";
+        }
         return "redirect:/";
     }
 
