@@ -3,6 +3,7 @@ package otaku.shelterforcowards;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import otaku.shelterforcowards.aop.TimeTraceAop;
 import otaku.shelterforcowards.repository.MemberRepository;
 import otaku.shelterforcowards.service.MemberService;
 
@@ -21,12 +22,4 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
-    /*
-    @Bean
-    public MemberRepository memberRepository() {
-        // return new jdbcMemberRepository(dataSource);
-        // return new jdbcTemplateMemberRepository(dataSource);
-        // return new JpaMemberRepository(em);
-
-    }*/
 }
