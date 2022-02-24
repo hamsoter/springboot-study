@@ -39,6 +39,19 @@ class MemberServiceIntegrationTest {
     }
 
     @Test
+    void 회원가입실패() {
+        // given
+        Member member = new Member();
+        member.setName("기야!");
+
+        // when
+        final IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member));
+
+        // then
+        assertThat(e.getMessage()).isEqualTo("아이디에 특수문자를 넣을 수 없습니다.");
+    }
+
+    @Test
     void 중복회원_예외() {
         // given
         Member member1 = new Member();
