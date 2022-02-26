@@ -34,5 +34,18 @@
         <span class="error-text"></span>
     </div>
 </div>
+
+<script type="application/javascript">
+    document.getElementById("level_up").addEventListener("click", function(e) {
+        let result = confirm("그뭐지.. 슈퍼겁쟁이가 되길 원하십니까?");
+        if(result) {
+            alert("너무 용감해서 탈락입니다...메롱");
+        } else {
+            alert("합격. 당신은 이제부터 슈퍼겁쟁이다.");
+            location.href = "/members/levelUp";
+        }
+    });
+
+</script>
 </body>
 </html>
