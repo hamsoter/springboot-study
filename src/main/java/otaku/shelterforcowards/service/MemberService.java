@@ -4,6 +4,8 @@ import org.springframework.transaction.annotation.Transactional;
 import otaku.shelterforcowards.domain.Member;
 import otaku.shelterforcowards.repository.MemberRepository;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -58,6 +60,10 @@ public class MemberService {
         }
     }
 
+    /**
+     * 세션 저장
+     */
+
 
     /**
      * 전체 회원 조회
@@ -71,6 +77,10 @@ public class MemberService {
      */
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+    public Optional<Member> findByName(String memberName) {
+        return memberRepository.findByName(memberName);
     }
 
     private boolean loginCheck (Member loginMember) {

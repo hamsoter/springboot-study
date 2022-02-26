@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import otaku.shelterforcowards.domain.Member;
 import otaku.shelterforcowards.service.MemberService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -60,18 +63,28 @@ public class MemberController {
     }*/
 
     @GetMapping("/myPage")
-    public String showInfo(Model model) {
+    public String showInfo(Member member, HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+
+        Member loginMember = memberService.findByName(session.getAttribute("name").toString()).get();
+
+        System.out.println("로그인 회원 정보 " + loginMember.getName());
+        model.addAttribute("name", loginMember.getName());
+        model.addAttribute("level", loginMember.getLevel());
+        model.addAttribute("id", loginMember.getId());
         return "/members/myPage";
     }
 
     @PostMapping("/login")
-    public String loginId(MemberForm form) {
+    public String loginId(MemberForm form, HttpServletRequest request) {
 
         Member loginMember = new Member();
         loginMember.setName(form.getName());
         loginMember.setPassword(form.getPassword());
 
         if(memberService.login(loginMember)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("name", loginMember.getName());
             return "redirect:/myPage";
         }
         return "redirect:/";

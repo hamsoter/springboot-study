@@ -17,6 +17,14 @@
     <h2 class="title">내 정보</h2>
     <h3 class="sub-title">아녕하세용!!! 로그인성공!</h3>
     <section>
+        <div id="my_info">
+            <ul>
+                <li>이름:  <span th:text="${name}" ></span> </li>
+                <li>레벨:  <span th:text="${(level == 0)? '겁쟁이':'슈퍼겁쟁이'}"></span> </li>
+                <li>고유 ID:  <span th:text="${id}" ></span> </li>
+            </ul>
+            <button id="level_up">더 쩌는 겁쟁이가 될래요</button>
+        </div>
     </section>
     <div class="error-box">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-triangle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -94,6 +94,24 @@ class MemberServiceIntegrationTest {
 
     }
 
+    @Test
+    void 이름찾기() {
+
+        // given
+        Member member1 = new Member();
+        member1.setName("멤버123");
+        member1.setPassword("sianansi1!");
+
+        memberService.join(member1);
+
+
+        // Optional을 Member 타입으로 꺼내준다.
+        Member result = memberService.findByName("멤버123").get();
+
+        System.out.println("!!!! 찾음요 " + result.getName());
+
+    }
+
 
     @Test
     void 로그인_아이디실패() {
