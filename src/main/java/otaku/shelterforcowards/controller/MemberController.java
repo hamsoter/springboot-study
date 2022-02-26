@@ -75,6 +75,24 @@ public class MemberController {
         return "/members/myPage";
     }
 
+    @GetMapping("/members/levelUp")
+    public String levelUp(Member member, HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+
+        Member loginMember = memberService.findByName(session.getAttribute("name").toString()).get();
+
+        loginMember.setLevel(1);
+
+        memberService.update(loginMember);
+
+        model.addAttribute("name", loginMember.getName());
+        model.addAttribute("level", loginMember.getLevel());
+        model.addAttribute("id", loginMember.getId());
+
+        return "/members/myPage";
+    }
+
+
     @PostMapping("/login")
     public String loginId(MemberForm form, HttpServletRequest request) {
 

@@ -34,6 +34,14 @@ public class MemberService {
     }
 
     /**
+     * 업데이트
+     */
+
+    public void update(Member member) {
+        memberRepository.save(member);
+    }
+
+    /**
      * 로그인
      */
 
