@@ -19,9 +19,9 @@
     <section>
         <div id="my_info">
             <ul>
-                <li>이름:  <span th:text="${name}" ></span> </li>
-                <li>레벨:  <span th:text="${(level == 0)? '겁쟁이':'슈퍼겁쟁이'}"></span> </li>
-                <li>고유 ID:  <span th:text="${id}" ></span> </li>
+                <li><strong>이름</strong><span class="member_value" th:text="${name}" ></span> </li>
+                <li><strong>레벨</strong><span class="member_value" th:text="${(level == 0)? '겁쟁이':'슈퍼겁쟁이'}"></span> </li>
+                <li><strong>고유 ID</strong><span class="member_value" th:text="${id}" ></span> </li>
             </ul>
             <button id="level_up">더 쩌는 겁쟁이가 될래요</button>
         </div>

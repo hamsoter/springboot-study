@@ -54,7 +54,7 @@ body {
 
 .container {
   background-color: #f7f7f7;
-  padding: 3rem;
+  padding: 3rem 4rem;
   width: 400px;
   border-radius: 0.5rem;
   box-shadow: 0px 3px 5px rgba(8, 50, 26, 0.435);
@@ -212,5 +212,35 @@ flex-direction: column;
 }
 
 #level_up {
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    background: #f18989;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
+#level_up:hover {
+    background: #ef7373;
+    transition: 0.2s;
+}
+
+#my_info > ul {
+    padding: 0;
+}
+
+#my_info > ul > li {
+    list-style: none;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+#my_info > ul > li > .member_value {
+    display: flex;
+    margin-left: auto;
+}
+
+strong {
+    font-size: 1.1rem;
 }
