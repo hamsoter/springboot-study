@@ -72,4 +72,9 @@ public class jdbcTemplateMemberRepository implements MemberRepository {
             return member;
         };
     }
+
+    @Override
+    public void delete(Member member) {
+        return;
+    }
 }

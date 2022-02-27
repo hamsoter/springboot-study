@@ -211,19 +211,36 @@ display:flex;
 flex-direction: column;
 }
 
-#level_up {
+.btn {
     border-radius: 0.25rem;
     padding: 0.75rem;
-    background: #f18989;
-    color: white;
     border: none;
     cursor: pointer;
+}
+
+#level_up {
+    color: white;
+    background: #f18989;
+    margin-bottom: 0.5rem;
 }
 
 #level_up:hover {
     background: #ef7373;
     transition: 0.2s;
 }
+
+#withdrawal {
+    border: 1px solid #f18989;
+    background: transparent;
+    color: #f18989;
+}
+
+#withdrawal:hover {
+    background: #0000000a;
+    color: #ef7373;
+    border: 1px solid #ef7373;
+}
+
 
 #my_info > ul {
     padding: 0;

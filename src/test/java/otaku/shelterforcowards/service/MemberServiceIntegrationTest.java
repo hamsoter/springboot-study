@@ -11,6 +11,8 @@ import otaku.shelterforcowards.domain.Member;
 import otaku.shelterforcowards.repository.MemberRepository;
 import otaku.shelterforcowards.repository.MemoryMemberRepository;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -149,5 +151,35 @@ class MemberServiceIntegrationTest {
 
         memberService.join(member1);
         memberService.login(member2);
+    }
+
+
+    @Test
+    void 탈퇴() {
+
+
+        // given
+        Member member1 = new Member();
+        member1.setName("흠냐냐");
+        member1.setPassword("gmasisi1!zz");
+        memberService.join(member1);
+
+
+        List<Member> before = memberService.findMembers();
+        before.forEach(m-> {
+            System.out.println(m.getName());
+        });
+
+
+        // when
+        memberService.delete(member1);
+
+
+        List<Member> after = memberService.findMembers();
+
+        after.forEach(m-> {
+            System.out.println(m.getName());
+        });
+
     }
 }

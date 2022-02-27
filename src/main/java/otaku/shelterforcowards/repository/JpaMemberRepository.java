@@ -44,4 +44,10 @@ public class JpaMemberRepository implements MemberRepository{
                 .getResultList();
 
     }
+
+    @Override
+    public void delete(Member member) {
+        return;
+    }
+
 }

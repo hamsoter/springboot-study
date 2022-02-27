@@ -171,4 +171,9 @@ public class jdbcMemberRepository implements MemberRepository {
     private void close(Connection conn) throws SQLException {
         DataSourceUtils.releaseConnection(conn, dataSource);
     }
+
+    @Override
+    public void delete(Member member) {
+        return;
+    }
 }

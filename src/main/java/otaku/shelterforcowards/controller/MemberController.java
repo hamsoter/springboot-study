@@ -68,7 +68,6 @@ public class MemberController {
 
         Member loginMember = memberService.findByName(session.getAttribute("name").toString()).get();
 
-        System.out.println("로그인 회원 정보 " + loginMember.getName());
         model.addAttribute("name", loginMember.getName());
         model.addAttribute("level", loginMember.getLevel());
         model.addAttribute("id", loginMember.getId());
@@ -108,4 +107,12 @@ public class MemberController {
         return "redirect:/";
     }
 
+    @GetMapping("/members/deleteMember")
+    public String delete(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+
+        Member loginMember = memberService.findByName(session.getAttribute("name").toString()).get();
+        memberService.delete(loginMember);
+        return "/members/goodbye";
+    }
 }

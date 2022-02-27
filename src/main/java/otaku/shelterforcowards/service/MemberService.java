@@ -49,6 +49,11 @@ public class MemberService {
         return loginCheck(member);
     }
 
+    /**
+     * 탈퇴
+     */
+    public void delete(Member member) {memberRepository.delete(member); }
+
     // 중복회원체크
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
@@ -67,11 +72,6 @@ public class MemberService {
             throw new IllegalStateException("암호는 숫자, 특수문자, 문자가 포함된 8~15자리여야 합니다.");
         }
     }
-
-    /**
-     * 세션 저장
-     */
-
 
     /**
      * 전체 회원 조회

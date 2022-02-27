@@ -23,7 +23,8 @@
                 <li><strong>레벨</strong><span class="member_value" th:text="${(level == 0)? '겁쟁이':'슈퍼겁쟁이'}"></span> </li>
                 <li><strong>고유 ID</strong><span class="member_value" th:text="${id}" ></span> </li>
             </ul>
-            <button id="level_up">더 쩌는 겁쟁이가 될래요</button>
+            <button id="level_up" class="btn">더 쩌는 겁쟁이가 될래요</button>
+            <button id="withdrawal" class="btn">겁쟁이를 그만둘래요</button>
         </div>
     </section>
     <div class="error-box">
@@ -42,6 +43,17 @@
             alert("너무 용감해서 탈락입니다...메롱");
         } else {
             alert("합격. 당신은 이제부터 슈퍼겁쟁이다.");
+            location.href = "/members/levelUp";
+        }
+    });
+
+    document.getElementById("withdrawal").addEventListener("click", function(e) {
+        let result = confirm("겁쟁이 그만둘 건가요?");
+        if(result) {
+            alert("잘가...");
+            location.href = "/members/deleteMember";
+        } else {
+            alert("당신은이제 슈퍼겁쟁이다.");
             location.href = "/members/levelUp";
         }
     });

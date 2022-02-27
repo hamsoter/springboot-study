@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import otaku.shelterforcowards.domain.Member;
 import otaku.shelterforcowards.repository.MemoryMemberRepository;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -78,6 +80,7 @@ class MemberServiceTest {
         */
 
     }
+
 
     @Test
     void 전체회원조회() {

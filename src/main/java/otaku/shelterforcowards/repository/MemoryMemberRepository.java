@@ -44,4 +44,9 @@ public class MemoryMemberRepository implements MemberRepository{
         store.clear();
         System.out.println("repo 초기화");
     }
+
+    @Override
+    public void delete(Member member) {
+        return;
+    }
 }
